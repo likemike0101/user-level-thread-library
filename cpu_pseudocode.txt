@@ -1,0 +1,18 @@
+Initialize CPU-side scheduling support
+Register interrupt handlers needed by the threading system
+Create the initial thread if this CPU is responsible for bootstrapping
+
+Maintain a collection of threads that are ready to run
+Track which thread is currently executing on each CPU
+Move threads between running, ready, mutex/cv waiting, and finished states as synchronization events occur
+
+Repeatedly:
+    Check whether any threads are ready to run
+    If work exists, choose one runnable thread
+    Transfer execution to that thread
+    When the thread yields, blocks, or finishes, resume scheduler control
+
+When a timer interrupt occurs:
+    Preempt the currently running thread when appropriate
+    Return that thread to the scheduler if it is still runnable
+    Allow another runnable thread to be selected

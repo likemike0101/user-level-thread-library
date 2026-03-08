@@ -1,0 +1,12 @@
+To wait on a condition variable:
+    Release the associated mutex
+    Sleep until another thread signals the condition
+    Reacquire the mutex before continuing
+
+To signal a condition variable:
+    Wake one waiting thread, if any exist
+
+To broadcast on a condition variable:
+    Wake all waiting threads
+
+A woken thread does not run immediately with the lock guaranteed; it must compete to reacquire the mutex before continuing.

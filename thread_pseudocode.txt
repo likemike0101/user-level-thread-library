@@ -1,0 +1,13 @@
+When a thread is created:
+    Allocate the resources needed for independent execution
+    Store the function the thread should run
+    Mark the thread as ready to be scheduled
+
+When a thread starts running:
+    Invoke the user-provided function
+    When that function finishes, mark the thread as completed
+    Return control to the scheduler
+
+When a thread yields:
+    Give the scheduler an opportunity to run another ready thread
+

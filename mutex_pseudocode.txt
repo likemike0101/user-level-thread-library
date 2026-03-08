@@ -1,0 +1,10 @@
+The mutex keeps track of whether it is currently held and manages waiting threads according to the library's scheduling policy.
+
+To lock a mutex:
+    If the mutex is available, acquire it
+    Otherwise, wait until it becomes available
+
+To unlock a mutex:
+    Release ownership of the mutex
+    If other threads are waiting, allow one of them to proceed
+
